@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: new-ui
+          uri: https://httpbin.org
+          predicates:
+          - Host=demo.example.com
+          - CookieWeighted=
+        - id: old-ui
+          uri: https://httpbin.davecheney.com
+          predicates:
+          - Host=demo.example.com
+logging:
+  level:
+    com:
+      example: DEBUG
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
+server:
+  port: 9999
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /management
