@@ -50,7 +50,7 @@ public class CookieWeightedRoutePredicateFactory extends AbstractRoutePredicateF
         }
         int x = hash % 10;
         log.debug("hash = {}({})", hash, x);
-        return config.isOk(x);
+        return config.canRoute(x);
     }
 
     static class Config {
@@ -68,7 +68,7 @@ public class CookieWeightedRoutePredicateFactory extends AbstractRoutePredicateF
         /**
          * @param n 0-9
          */
-        public boolean isOk(int n) {
+        public boolean canRoute(int n) {
             return n < this.weight * 10;
         }
     }
