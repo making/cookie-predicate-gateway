@@ -6,7 +6,7 @@ spring:
           uri: https://httpbin.org
           predicates:
           - Host=demo.example.com
-          - CookieWeighted=
+          - CookieWeighted=0.5
         - id: old-ui
           uri: https://httpbin.davecheney.com
           predicates:
